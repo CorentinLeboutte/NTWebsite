@@ -1,0 +1,269 @@
+
+
+
+
+<div class="login-page">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center;">Connexion</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+     
+     <!--  L'enregistrement -->
+     
+     
+        <mat-tab label="Se connecter">
+          <mat-card-content>
+
+
+            <form action="">
+
+            <!--Email-->
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Email"
+                  required
+                  name="email"
+                  ngModel
+                  #email="ngModel">
+                  <mat-error *ngIf="email.invalid">L'adresse mail est requise</mat-error>
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+
+              <!--Mot de passe-->
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Mot de passe"
+                  type="password"
+                  required
+                  minlength="6"
+                  name="password"
+                  ngModel
+                  #password="ngModel">
+                  <mat-error
+                    *ngIf="password.errors && password.errors.required">
+                    Le mot de passe est requis
+                  </mat-error>
+                  <mat-error
+                    *ngIf="password.errors && password.errors.minlength">
+                    Le mot de passe doit avoir au moins 6 caractères
+                  </mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+
+              <!--Bouton se souvenir de moi-->
+              <mat-checkbox>Se souvenir de moi !</mat-checkbox>
+              <button
+                mat-raised-button
+                color="primary"
+                class="login-button">
+                S'enregistrer
+              </button>
+
+            </form>
+          </mat-card-content>
+      </mat-tab>
+
+
+<!-- L'inscription -->
+
+
+      <mat-tab label="S'inscrire">
+        <mat-card-content>
+
+
+          <form action="">
+
+            <!--Civilité-->
+            <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Civilité"
+                  required
+                  name="civilite"
+                  ngModel
+                  #username="ngModel">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <mat-error
+                  *ngIf="username.invalid">
+                  La civilité est requise
+                </mat-error>
+              </mat-form-field>
+
+            <!--Nom-->
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Nom"
+                required
+                name="Nom"
+                ngModel
+                #username="ngModel">
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error
+                *ngIf="username.invalid">
+                Le nom d'utilisateur est requis
+              </mat-error>
+            </mat-form-field>
+
+            <!--Prénom-->
+            <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Prénom"
+                  required
+                  name="Prenom"
+                  ngModel
+                  #username="ngModel">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <mat-error
+                  *ngIf="username.invalid">
+                  Le prénom d'utilisateur est requis
+                </mat-error>
+              </mat-form-field>
+
+
+
+            <!--Email-->
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                required
+                name="EMail"
+                ngModel
+                #email="ngModel">
+                <mat-error *ngIf="email.invalid">L'adresse mail est requise</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+
+
+            <!--Mot de passe-->
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Mot de passe"
+                type="password"
+                required
+                minlength="6"
+                name="Mdp"
+                ngModel
+                #password="ngModel">
+                <mat-error
+                  *ngIf="password.errors && password.errors.required">
+                  La saisie du mot de passe est obligatoire
+                </mat-error>
+                <mat-error
+                  *ngIf="password.errors && password.errors.minlength">
+                  Le mot de passe doit contenir au moins 6 caractères
+                </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+
+            </mat-form-field>
+
+
+            <!--Confirmation du mot de passe-->
+            <mat-form-field>
+                <input
+                matInput
+                placeholder="Confirmation du mot de passe"
+                type="password"
+                required
+                minlength="6"
+                name="reMdp"
+                ngModel
+                #repassword="ngModel">
+                <mat-error
+                  *ngIf="repassword.errors && repassword.errors.required">
+                  La confirmation du mot de passe est obligatoire
+                </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <!--Date de naissance-->
+
+            
+            <mat-form-field>
+                <mat-label>Date de naissance:</mat-label>
+                <input 
+                matInput
+                placeholder="Date de naissance"
+                [matDatepicker]="dp"
+                required
+                name="DateNaissance"
+                ngModel
+                  #username="ngModel">
+                
+                <mat-error
+                  *ngIf="username.invalid">
+                  La date de naissance est requise
+                </mat-error>
+                
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+            </mat-form-field>
+
+                
+
+
+
+
+
+              <!--Numéro de téléphone domicile-->
+            <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Numéro de téléphone fixe"
+                  required
+                  name="NumTelDomicile"
+                  ngModel
+                  #username="ngModel">
+                <mat-icon matSuffix>local_phone</mat-icon>
+                <mat-error
+                  *ngIf="username.invalid">
+                  Le prénom d'utilisateur est requis
+                </mat-error>
+              </mat-form-field>
+
+              <!--Numéro de GSM-->
+            <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Numéro de téléphone portable"
+                  required
+                  name="NumTelPortable"
+                  ngModel
+                  #username="ngModel">
+                <mat-icon matSuffix>smartphone</mat-icon>
+                <mat-error
+                  *ngIf="username.invalid">
+                  Le prénom d'utilisateur est requis
+                </mat-error>
+              </mat-form-field>
+
+              <!--Numéro de fax-->
+            <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Numéro de fax"
+                  name="NumFax"
+                  ngModel
+                  #username="ngModel">
+                <mat-icon matSuffix>print</mat-icon>
+              </mat-form-field>
+            
+            <!--Bouton validation-->
+            <button
+              mat-raised-button
+              color="primary"
+              class="login-button">
+              Valider l'inscription
+            </button>
+
+          </form>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

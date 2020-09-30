@@ -1,0 +1,30 @@
+
+<mat-grid-list 
+    cols="3" 
+    rowHeight="200px" 
+    gutterSize="0.5rem">  
+    
+    <!--Tuile visite-->
+    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">    
+        <button mat-raised-button [routerLink]="['/visites']" >Visites</button>
+    </mat-grid-tile>  
+
+
+    <!--Tuile gastronomie-->
+    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">    
+        <button mat-raised-button [routerLink]="['/gastronomie']">Gastronomie</button>  
+    </mat-grid-tile>
+
+    <!--Tuile divertissement-->
+    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">    
+        <button mat-raised-button [routerLink]="['/divertissement']">Divertissement</button> 
+    </mat-grid-tile>
+</mat-grid-list>  
+
+
+
+
+
+
+
+
