@@ -5,26 +5,58 @@
     gutterSize="0.5rem">  
     
     <!--Tuile visite-->
-    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">    
-        <button mat-raised-button [routerLink]="['/visites']" >Visites</button>
+    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1"> 
+        <button mat-button [matMenuTriggerFor]="visites">Visites</button>
+            <mat-menu #visites="matMenu" yPosition="below">
+                
+                <button mat-menu-item [routerLink]="['/pointdevue']">Points de vue</button>
+                <button mat-menu-item [routerLink]="['/musee']">Musées</button>
+                <button mat-menu-item [routerLink]="['/monuments']">Monuments</button>
+                <button mat-menu-item [routerLink]="['/insolite']">Insolite</button>
+                
+            </mat-menu>
     </mat-grid-tile>  
 
 
     <!--Tuile gastronomie-->
-    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">    
-        <button mat-raised-button [routerLink]="['/gastronomie']">Gastronomie</button>  
+    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">   
+        <button mat-button [matMenuTriggerFor]="gastronomie">Gastronomie</button>
+            <mat-menu #gastronomie="matMenu" yPosition="below">
+                <button mat-menu-item [routerLink]="['/restoperm']">Restaurants permanents</button>
+                <button mat-menu-item [routerLink]="['/restoephemere']">Restaurants éphemères</button>
+                <button mat-menu-item [routerLink]="['/fermes']">Fermes</button>
+                <button mat-menu-item [routerLink]="['/echoppeslocales']">Echoppes locales</button>
+            </mat-menu>
+        
     </mat-grid-tile>
+
+
+
+
 
     <!--Tuile divertissement-->
-    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">    
-        <button mat-raised-button [routerLink]="['/divertissement']">Divertissement</button> 
+    <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">   
+        <button mat-button [matMenuTriggerFor]="divertissement">Divertissement</button>
+            <mat-menu #divertissement="matMenu" yPosition="below">
+                <button mat-menu-item [routerLink]="['/cinema']">Cinémas</button>
+                <button mat-menu-item [routerLink]="['/actiludique']">Activités ludiques</button>
+                <button mat-menu-item [routerLink]="['/actisport']">Activités sportives</button>
+                <button mat-menu-item [routerLink]="['/nightlife']">Vie nocturne</button>
+            </mat-menu>
+        
     </mat-grid-tile>
-</mat-grid-list>  
 
 
 
 
 
+<!--
+
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
 
 
-
+-->
