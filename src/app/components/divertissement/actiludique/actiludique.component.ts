@@ -20,7 +20,3 @@ export class ActiludiqueComponent implements OnInit {
   ngOnInit(): void {
   }
 }
-
-// }
-// export class ExpansionOverviewExample {
-//   panelOpenState = false;}

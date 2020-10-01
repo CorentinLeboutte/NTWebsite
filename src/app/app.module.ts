@@ -41,6 +41,7 @@ import { CinemaComponent } from './components/divertissement/cinema/cinema.compo
 import { ActiludiqueComponent } from './components/divertissement/actiludique/actiludique.component';
 import { ActisportComponent } from './components/divertissement/actisport/actisport.component';
 import { NightlifeComponent } from './components/divertissement/nightlife/nightlife.component';
+import { MuseeComponent } from './components/visites/musee/musee.component';
 
 
 
@@ -69,10 +70,7 @@ import { NightlifeComponent } from './components/divertissement/nightlife/nightl
     ActiludiqueComponent,
     ActisportComponent,
     NightlifeComponent,
-
-
-  
-
+    MuseeComponent,
 
   ],
   imports: [
@@ -98,9 +96,6 @@ import { NightlifeComponent } from './components/divertissement/nightlife/nightl
     MatNativeDateModule,
     MatExpansionModule,
     MatSelectModule
-
-    
-
   ],
 
   providers: [],

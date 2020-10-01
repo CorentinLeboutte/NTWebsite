@@ -16,6 +16,7 @@ import { RestopermComponent } from './components/gastronomie/restoperm/restoperm
 import { HomeComponent } from './components/home/home.component';
 import { InsoliteComponent } from './components/visites/insolite/insolite.component';
 import { MonumentsComponent } from './components/visites/monuments/monuments.component';
+import { MuseeComponent } from './components/visites/musee/musee.component';
 import { PointdevueComponent } from './components/visites/pointdevue/pointdevue.component';
 import { VisitesComponent } from './components/visites/visites.component';
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path:'insolite', component: InsoliteComponent, children:[]},
   { path:'monuments', component: MonumentsComponent, children:[]},
   { path:'pointdevue', component: PointdevueComponent, children:[]},
+  { path:'musee', component: MuseeComponent, children:[]},
 
   { path:'gastronomie', component: GastronomieComponent, children:[]},
   { path:'echoppeslocales', component: EchoppeslocalesComponent, children:[]},
