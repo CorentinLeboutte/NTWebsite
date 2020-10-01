@@ -7,7 +7,6 @@ import { ActiludiqueComponent } from './components/divertissement/actiludique/ac
 import { ActisportComponent } from './components/divertissement/actisport/actisport.component';
 import { CinemaComponent } from './components/divertissement/cinema/cinema.component';
 import { DivertissementComponent } from './components/divertissement/divertissement.component';
-import { MuseeComponent } from './components/visites/musee/musee.component';
 import { NightlifeComponent } from './components/divertissement/nightlife/nightlife.component';
 import { EchoppeslocalesComponent } from './components/gastronomie/echoppeslocales/echoppeslocales.component';
 import { FermesComponent } from './components/gastronomie/fermes/fermes.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path:'insolite', component: InsoliteComponent, children:[]},
   { path:'monuments', component: MonumentsComponent, children:[]},
   { path:'pointdevue', component: PointdevueComponent, children:[]},
-  { path:'musee', component: MuseeComponent, children:[]},
 
   { path:'gastronomie', component: GastronomieComponent, children:[]},
   { path:'echoppeslocales', component: EchoppeslocalesComponent, children:[]},

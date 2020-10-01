@@ -22,9 +22,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {LayoutModule} from '@angular/cdk/layout';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { VisitesComponent } from './components/visites/visites.component';
 import { GastronomieComponent } from './components/gastronomie/gastronomie.component';
@@ -41,7 +38,6 @@ import { RestoephemereComponent } from './components/gastronomie/restoephemere/r
 import { EchoppeslocalesComponent } from './components/gastronomie/echoppeslocales/echoppeslocales.component';
 import { FermesComponent } from './components/gastronomie/fermes/fermes.component';
 import { CinemaComponent } from './components/divertissement/cinema/cinema.component';
-import { MuseeComponent } from './components/divertissement/musee/musee.component';
 import { ActiludiqueComponent } from './components/divertissement/actiludique/actiludique.component';
 import { ActisportComponent } from './components/divertissement/actisport/actisport.component';
 import { NightlifeComponent } from './components/divertissement/nightlife/nightlife.component';
@@ -59,9 +55,6 @@ import { NightlifeComponent } from './components/divertissement/nightlife/nightl
     ContactComponent,
     ConnectionComponent,
     NavComponent,
-    HeaderComponent,
-    FooterComponent,
-    DashboardComponent,
     VisitesComponent,
     GastronomieComponent,
     DivertissementComponent,
@@ -73,7 +66,6 @@ import { NightlifeComponent } from './components/divertissement/nightlife/nightl
     EchoppeslocalesComponent,
     FermesComponent,
     CinemaComponent,
-    MuseeComponent,
     ActiludiqueComponent,
     ActisportComponent,
     NightlifeComponent,
