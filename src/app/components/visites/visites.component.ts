@@ -10,15 +10,19 @@ import { map,shareReplay } from 'rxjs/operators';
 })
 export class VisitesComponent implements OnInit {
 
+
+  panelOpenState = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)  
   .pipe(    map(result => result.matches),    
   shareReplay()  );
 
-  constructor(private breakpointObserver: BreakpointObserver,) { }
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
   }
 
 }
-export class ExpansionOverviewExample {
-  panelOpenState = false;}
+
+
+/*export class ExpansionOverviewExample {
+  panelOpenState = false;}*/

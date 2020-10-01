@@ -241,3 +241,43 @@ gutterSize="0.5rem">
 
 
   </mat-grid-tile>
+
+
+<mat-grid-tile  [colspan]="(isHandset$ | async) ? 4 : 1" [rowspan]="1">  
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Le Fouquet's - Chez Mergim </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="assets/images/no-image.jpg">
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              Description:
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="Description">
+          <p>La cathédrale Saint-Aubain de Namur est un édifice religieux catholique qui est l'église 
+            épiscopale et siège du diocèse de Namur. Commencée en 1751, son édification se termine 
+            en 1767. La consécration a eu lieu le 20 septembre 1772. Son saint patron est Alban de 
+            Mayence. Elle est inscrite au patrimoine majeur de Wallonie</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Sélectionner</button>
+      <button mat-button onclick="href = 'www.tastyburgerlocal.com/';">Site Web</button>
+    </mat-card-actions>
+  </mat-card>
+
+  
+  <!-------------------------------------------------------------------------------------------------------------->
+
+
+</mat-grid-tile>

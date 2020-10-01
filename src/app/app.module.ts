@@ -32,6 +32,20 @@ import { DivertissementComponent } from './components/divertissement/divertissem
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
+import { PointdevueComponent } from './components/visites/pointdevue/pointdevue.component';
+import { InsoliteComponent } from './components/visites/insolite/insolite.component';
+import { MonumentsComponent } from './components/visites/monuments/monuments.component';
+import { RestopermComponent } from './components/gastronomie/restoperm/restoperm.component';
+import { RestoephemereComponent } from './components/gastronomie/restoephemere/restoephemere.component';
+import { EchoppeslocalesComponent } from './components/gastronomie/echoppeslocales/echoppeslocales.component';
+import { FermesComponent } from './components/gastronomie/fermes/fermes.component';
+import { CinemaComponent } from './components/divertissement/cinema/cinema.component';
+import { MuseeComponent } from './components/divertissement/musee/musee.component';
+import { ActiludiqueComponent } from './components/divertissement/actiludique/actiludique.component';
+import { ActisportComponent } from './components/divertissement/actisport/actisport.component';
+import { NightlifeComponent } from './components/divertissement/nightlife/nightlife.component';
+
 
 
 
@@ -51,6 +65,18 @@ import {MatExpansionModule} from '@angular/material/expansion';
     VisitesComponent,
     GastronomieComponent,
     DivertissementComponent,
+    PointdevueComponent,
+    InsoliteComponent,
+    MonumentsComponent,
+    RestopermComponent,
+    RestoephemereComponent,
+    EchoppeslocalesComponent,
+    FermesComponent,
+    CinemaComponent,
+    MuseeComponent,
+    ActiludiqueComponent,
+    ActisportComponent,
+    NightlifeComponent,
 
 
   
@@ -78,7 +104,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatGridListModule,
     MatTooltipModule,
     MatNativeDateModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule
 
     
 
