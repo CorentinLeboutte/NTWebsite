@@ -16,7 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
@@ -42,6 +42,13 @@ import { ActiludiqueComponent } from './components/divertissement/actiludique/ac
 import { ActisportComponent } from './components/divertissement/actisport/actisport.component';
 import { NightlifeComponent } from './components/divertissement/nightlife/nightlife.component';
 import { MuseeComponent } from './components/visites/musee/musee.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AccueilComponent } from './components/accueil/accueil.component';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import { AdressFormComponent } from './adress-form/adress-form.component';
+import { MatRadioModule } from '@angular/material/radio';
+
+
 
 
 
@@ -71,6 +78,8 @@ import { MuseeComponent } from './components/visites/musee/musee.component';
     ActisportComponent,
     NightlifeComponent,
     MuseeComponent,
+    AccueilComponent,
+    AdressFormComponent,
 
   ],
   imports: [
@@ -95,7 +104,12 @@ import { MuseeComponent } from './components/visites/musee/musee.component';
     MatTooltipModule,
     MatNativeDateModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule,
+    TextFieldModule,
+    MatRadioModule,
+    ReactiveFormsModule
+
   ],
 
   providers: [],

@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'NTWebsite';
-  /*myimage1:string ="assets/images/1.jpg"*/
 }
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
 import { ConnectionComponent } from './components/connection/connection.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ActiludiqueComponent } from './components/divertissement/actiludique/actiludique.component';
@@ -23,6 +24,7 @@ import { VisitesComponent } from './components/visites/visites.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent},
+  { path:'accueil', component: AccueilComponent},
 
   { path:'visites', component: VisitesComponent, children:[]},
   { path:'insolite', component: InsoliteComponent, children:[]},
