@@ -2,9 +2,16 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
+
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:5000/api'
 };
+
+// getAll() {
+//   return this.http.get<Visiste[]>(`${environment.apiUrl}/visite`)
+// }
 
 /*
  * For easier debugging in development mode, you can import the following file

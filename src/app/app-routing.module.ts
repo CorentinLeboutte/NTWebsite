@@ -38,7 +38,8 @@ const routes: Routes = [
   { path:'restoephemere', component: RestoephemereComponent, children:[]},
   { path:'restoperm', component: RestopermComponent, children:[]},
 
-  { path:'divertissement', component: DivertissementComponent, children:[]},
+  /*{ path:'divertissement', component: DivertissementComponent, children:[]},  */
+  { path:'divertissement/:cat', component: DivertissementComponent, children:[]},
   { path:'actiludique', component: ActiludiqueComponent, children:[]},
   { path:'actisport', component: ActisportComponent, children:[]},
   { path:'cinema', component: CinemaComponent, children:[]},
