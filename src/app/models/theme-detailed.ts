@@ -8,6 +8,8 @@ export class ThemeDetailed {
 
     public nom : string ;
 
+    public image : string ; 
+
     public description:  string ;
 
     public heureOuverture : Date ;

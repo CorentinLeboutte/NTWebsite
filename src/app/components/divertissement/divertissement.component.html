@@ -3,7 +3,7 @@
 cols="4" 
 rowHeight="500px" 
 gutterSize="0.5rem"> 
-<ng-container *ngFor = "let theme of themes">
+<ng-container *ngFor="let theme of themes">
     <mat-grid-tile  [colspan]="(isHandset$ | async) ? 4 : 1" [rowspan]="1">  
         <mat-card class="example-card">
             <mat-card-header>
@@ -13,7 +13,10 @@ gutterSize="0.5rem">
                   
               </mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="assets/images/no-image.jpg">
+
+            <img mat-card-image src={{theme.image}}>
+            <!--<img mat-card-image src="assets/images/no-image.jpg">-->
+
             <mat-card-content>
               <mat-accordion>
                 <mat-expansion-panel hideToggle>
@@ -35,10 +38,16 @@ gutterSize="0.5rem">
               </mat-accordion>
             </mat-card-content>
             <mat-card-actions>
+              <button mat-raised-button color="primary">Détails</button>
+ 
+ 
+              <!--             <button mat-raised-button color="primary">
+                  <a href="http://www.google.be" target="_blank">Site Web</a> 
+              </button>-->
+
               <button mat-raised-button color="primary">Sélectionner</button>
-              <button mat-raised-button color="primary">
-                  <a href="http://lasergame-evolution.be/centre-namur" target="_blank">Site Web</a>
-              </button>
+
+
             </mat-card-actions>
           </mat-card>
         </mat-grid-tile>

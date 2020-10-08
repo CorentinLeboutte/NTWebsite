@@ -23,31 +23,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {LayoutModule} from '@angular/cdk/layout';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { VisitesComponent } from './components/visites/visites.component';
-import { GastronomieComponent } from './components/gastronomie/gastronomie.component';
 import { DivertissementComponent } from './components/divertissement/divertissement.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
-import { PointdevueComponent } from './components/visites/pointdevue/pointdevue.component';
-import { InsoliteComponent } from './components/visites/insolite/insolite.component';
-import { MonumentsComponent } from './components/visites/monuments/monuments.component';
-import { RestopermComponent } from './components/gastronomie/restoperm/restoperm.component';
-import { RestoephemereComponent } from './components/gastronomie/restoephemere/restoephemere.component';
-import { EchoppeslocalesComponent } from './components/gastronomie/echoppeslocales/echoppeslocales.component';
-import { FermesComponent } from './components/gastronomie/fermes/fermes.component';
-import { CinemaComponent } from './components/divertissement/cinema/cinema.component';
-import { ActiludiqueComponent } from './components/divertissement/actiludique/actiludique.component';
-import { ActisportComponent } from './components/divertissement/actisport/actisport.component';
-import { NightlifeComponent } from './components/divertissement/nightlife/nightlife.component';
-import { MuseeComponent } from './components/visites/musee/musee.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { AdressFormComponent } from './adress-form/adress-form.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FilesFormComponent } from './components/files-form/files-form.component';
 
 
 
@@ -64,23 +51,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ContactComponent,
     ConnectionComponent,
     NavComponent,
-    VisitesComponent,
-    GastronomieComponent,
     DivertissementComponent,
-    PointdevueComponent,
-    InsoliteComponent,
-    MonumentsComponent,
-    RestopermComponent,
-    RestoephemereComponent,
-    EchoppeslocalesComponent,
-    FermesComponent,
-    CinemaComponent,
-    ActiludiqueComponent,
-    ActisportComponent,
-    NightlifeComponent,
-    MuseeComponent,
     AccueilComponent,
     AdressFormComponent,
+    FilesFormComponent,
 
   ],
   imports: [

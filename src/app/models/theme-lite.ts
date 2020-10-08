@@ -4,6 +4,8 @@ export class ThemeLite {
 
     public nom : string;
 
+    public image : string;
+
     public description : string;
 }
 
