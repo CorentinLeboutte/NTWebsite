@@ -1,5 +1,5 @@
 
-<app-files-form></app-files-form>
+<!-- <app-files-form></app-files-form> -->
 
 <mat-grid-list 
     cols="3" 
@@ -50,9 +50,9 @@
 
 
 -->
-<ng-container *ngFor="let TT of TypeThemes">
+<ng-container *ngFor="let theme of TypeThemes">
     <mat-grid-tile   [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">   
-        <button mat-button routerLink="/divertissement/{{TT.typeThemeID}}">{{TT.nom}}</button>
+        <button mat-button routerLink="/divertissement/{{theme.typeThemeID}}">{{theme.nom}}</button>
 
     </mat-grid-tile>
 </ng-container>

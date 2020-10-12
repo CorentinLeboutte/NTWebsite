@@ -1,30 +1,31 @@
 export class ThemeWithTypeTheme {
-    public  ThemeID : number;
+    public  themeID : number;
 
-    public Nom : string ;
+    public nom : string ;
 
-    public Description:  string ;
+    public description:  string ;
 
-    public HeureOuverture : Date ;
+    public heureOuverture : Date ;
 
-    public HeureFermeture : Date ;
+    public heureFermeture : Date ;
 
-    public LienSiteWeb :string ;
+    public lienSiteWeb :string ;
 
-    public AdresseID : number;
+    public adresseID : number;
 
-    public TypeTheme : TypeTheme ;
+    public typeTheme : TypeTheme ;
 
-    public TypeDePaiement : string;
+    public typeDePaiement : string;
 
-    public PrixMin: number;
+    public prixMin: number;
 
-    public  PrixMax : number;
+    public prixMax : number;
 }
 
 export class TypeTheme {
-    public TypeThemeID : number;
 
-    public  Nom : string ;
+    public typeThemeID : number;
+
+    public  nom : string ;
 
 }

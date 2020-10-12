@@ -34,7 +34,9 @@ import {TextFieldModule} from '@angular/cdk/text-field';
 import { AdressFormComponent } from './adress-form/adress-form.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FilesFormComponent } from './components/files-form/files-form.component';
+import { LoginComponent } from './components/login/login.component';
+
+//import { FilesFormComponent } from './components/files-form/files-form.component';
 
 
 
@@ -54,7 +56,9 @@ import { FilesFormComponent } from './components/files-form/files-form.component
     DivertissementComponent,
     AccueilComponent,
     AdressFormComponent,
-    FilesFormComponent,
+    LoginComponent,
+
+    //FilesFormComponent,
 
   ],
   imports: [

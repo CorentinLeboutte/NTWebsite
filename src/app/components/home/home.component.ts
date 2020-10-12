@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
 
     console.log("homeloaded")
 
-    this.Service.getall().subscribe((data)=> {this.TypeThemes = data
-    console.log(data)
+    this.Service.getall().subscribe((data)=> {this.TypeThemes = data;
+    console.log(data);
   console.log(this.TypeThemes)});
 
   }
