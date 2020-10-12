@@ -15,6 +15,11 @@ export class ConnectionComponent implements OnInit {
 
   ngOnInit(): void {
     this._dateAdapter.setLocale('fr');
+    this.initForm();
+  }
+
+  private initForm(){
+    
   }
 
 }

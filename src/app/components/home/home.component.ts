@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { TypeTheme } from 'src/app/models/theme-with-type-theme';
-import { TypeThemeService } from '../../services/type-theme.service'
+import { TypeThemeService } from '../../services/type-theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,19 @@ export class HomeComponent implements OnInit {
   .pipe(    map(result => result.matches),    
   shareReplay()  );
 
-  constructor(private breakpointObserver: BreakpointObserver,private Service:TypeThemeService ) { }
+  constructor(private breakpointObserver: BreakpointObserver,private Service:TypeThemeService,private router: Router ) { }
+
+  getLogin() {
+    return JSON.parse(localStorage.getItem('user')).login;
+  }
+
+  
+logout() {
+  console.log('Tentative de déconnexion');
+
+  localStorage.removeItem('user');
+  this.router.navigate(['/login']);
+}
 
   ngOnInit(): void {
 

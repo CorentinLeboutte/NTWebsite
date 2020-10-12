@@ -1,12 +1,13 @@
 
 <!-- <app-files-form></app-files-form> -->
 
+
 <mat-grid-list 
     cols="3" 
     rowHeight="200px" 
     gutterSize="0.5rem">  
     <!--
-    <!--Tuile visite
+    Tuile visite
     <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1"> 
         <button mat-button [matMenuTriggerFor]="visites">Visites</button>
             <mat-menu #visites="matMenu" yPosition="below">
@@ -20,7 +21,7 @@
     </mat-grid-tile>  
 
 
-    <!--Tuile gastronomie
+    Tuile gastronomie
     <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">   
         <button mat-button [matMenuTriggerFor]="gastronomie">Gastronomie</button>
             <mat-menu #gastronomie="matMenu" yPosition="below">
@@ -36,7 +37,7 @@
 
 
 
-    <!--Tuile divertissement
+    Tuile divertissement
     <mat-grid-tile  [colspan]="(isHandset$ | async) ? 3 : 1" [rowspan]="1">   
         <button mat-button [matMenuTriggerFor]="divertissement">Divertissement</button>
             <mat-menu #divertissement="matMenu" yPosition="below">
