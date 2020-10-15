@@ -31,9 +31,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
-import { AdressFormComponent } from './adress-form/adress-form.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
 
 //import { FilesFormComponent } from './components/files-form/files-form.component';
 
@@ -54,7 +55,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NavComponent,
     DivertissementComponent,
     AccueilComponent,
-    AdressFormComponent,
+
 
     //FilesFormComponent,
 

@@ -1,57 +1,38 @@
-
-
-
 <!-- Toolbar supérieure-->
 
-  <mat-toolbar>
-    <span>Namur Tourisme</span>
-  </mat-toolbar>
-
-
+<mat-toolbar>
+  <span>Namur Tourisme</span>
+</mat-toolbar>
 
 <!--Toolbar inférieure-->
 
-
-  <mat-toolbar>
-
-
-      <!--boutons du menu-->
-
+<mat-toolbar>
+  <!--boutons du menu-->
 
   <button mat-button [matMenuTriggerFor]="menu">
-
     <mat-icon>menu</mat-icon>
   </button>
-  
+
   <mat-menu #menu="matMenu">
-  
-  <button mat-menu-item routerLink="/home">Accueil</button>
-  <button mat-menu-item routerLink="/about">A propos</button>
-  <button mat-menu-item routerLink="/contact">Contacts</button>
-
+    <button mat-menu-item routerLink="/home">Accueil</button>
+    <button mat-menu-item routerLink="/about">A propos</button>
+    <button mat-menu-item routerLink="/contact">Contacts</button>
   </mat-menu>
-  
+
   <span>Menu</span>
-  <span class="example-spacer">
-  </span>
+  <span class="example-spacer"> </span>
 
-
-
-      <!--bouton du login -->
-  <button mat-icon-button class="login-icon" routerLink="/connection" matTooltip="Se connecter">
-   <mat-icon>login</mat-icon>
-
+  <!--bouton du login -->
+  <button
+    mat-icon-button
+    class="login-icon"
+    routerLink="/connection"
+    matTooltip="Se connecter"
+  >
+    <mat-icon>login</mat-icon>
   </button>
-
 </mat-toolbar>
 
 <div class="content">
-
   <router-outlet></router-outlet>
-
 </div>
-
-
-
-
-
