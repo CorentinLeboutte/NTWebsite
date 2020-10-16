@@ -11,17 +11,18 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  { path:'home', component: HomeComponent},
-  { path:'accueil', component: AccueilComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'accueil', component: AccueilComponent },
 
 
   /*{ path:'divertissement', component: DivertissementComponent, children:[]},  */
-  { path:'divertissement/:cat', component: DivertissementComponent, children:[]},
+  { path: 'divertissement/:cat', component: DivertissementComponent, children: [] },
 
 
-  { path:'about', component: AboutComponent, children:[]},
-  { path:'contact', component: ContactComponent, children:[]},
-  { path:'connection', component: ConnectionComponent, children:[]},
+  { path: 'about', component: AboutComponent, children: [] },
+  { path: 'contact', component: ContactComponent, children: [] },
+  { path: 'connection', component: ConnectionComponent, children: [] },
+
 ];
 
 @NgModule({

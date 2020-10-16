@@ -29,6 +29,7 @@
                 formControlName="mdp"
               />
               <mat-icon matSuffix>lock</mat-icon>
+              <!-- <p *ngIf="">Mot de passe invalid.</p> -->
             </mat-form-field>
 
             <!--Bouton se connecter/déconnecter-->
@@ -40,6 +41,7 @@
               class="login-button"
               *ngIf="!authStatus"
               type="submit"
+              (click)="onSubmitLogin()"
             >
               Se connecter
             </button>
@@ -64,25 +66,45 @@
           <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
             <!--Civilité-->
             <mat-form-field>
-              <input matInput placeholder="Civilité" required name="civilite" />
+              <input
+                matInput
+                placeholder="Civilité"
+                required
+                formControlName="civilite"
+              />
               <mat-icon matSuffix>perm_identity</mat-icon>
             </mat-form-field>
 
             <!--Nom-->
             <mat-form-field>
-              <input matInput placeholder="Nom" required Name="Nom" />
+              <input
+                matInput
+                placeholder="Nom"
+                required
+                formControlName="nom"
+              />
               <mat-icon matSuffix>perm_identity</mat-icon>
             </mat-form-field>
 
             <!--Prénom-->
             <mat-form-field>
-              <input matInput placeholder="Prénom" required name="Prenom" />
+              <input
+                matInput
+                placeholder="Prénom"
+                required
+                formControlName="prenom"
+              />
               <mat-icon matSuffix>perm_identity</mat-icon>
             </mat-form-field>
 
             <!--Email-->
             <mat-form-field>
-              <input matInput placeholder="Email" required name="EMail" />
+              <input
+                matInput
+                placeholder="Email"
+                required
+                formControlName="email"
+              />
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
 
@@ -94,23 +116,23 @@
                 type="password"
                 required
                 minlength="6"
-                name="Mdp"
+                formControlName="mdp"
               />
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
 
             <!--Confirmation du mot de passe-->
-            <mat-form-field>
+            <!-- <mat-form-field>
               <input
                 matInput
                 placeholder="Confirmation du mot de passe"
                 type="password"
                 required
                 minlength="6"
-                name="reMdp"
+                formControlName="remdp"
               />
               <mat-icon matSuffix>lock</mat-icon>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <!--Date de naissance-->
 
@@ -121,7 +143,7 @@
                 placeholder="Date de naissance"
                 [matDatepicker]="dp"
                 required
-                name="DateNaissance"
+                formControlName="dateNaiss"
               />
               <mat-datepicker-toggle
                 matSuffix
@@ -135,7 +157,7 @@
               <input
                 matInput
                 placeholder="Numéro de téléphone fixe"
-                name="NumTelDomicile"
+                formControlName="numTelDomicile"
               />
               <mat-icon matSuffix>local_phone</mat-icon>
             </mat-form-field>
@@ -146,14 +168,18 @@
                 matInput
                 placeholder="Numéro de téléphone portable"
                 required
-                name="NumTelPortable"
+                formControlName="numTelPortable"
               />
               <mat-icon matSuffix>smartphone</mat-icon>
             </mat-form-field>
 
             <!--Numéro de fax-->
             <mat-form-field>
-              <input matInput placeholder="Numéro de fax" name="NumFax" />
+              <input
+                matInput
+                placeholder="Numéro de fax"
+                formControlName="numFax"
+              />
               <mat-icon matSuffix>print</mat-icon>
             </mat-form-field>
 

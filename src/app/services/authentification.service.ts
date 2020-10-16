@@ -13,7 +13,7 @@ import { Utilisateur } from '../models/utilisateur.model';
 })
 export class AuthentificationService {
 
-  isAuth : boolean = false;
+  public get isAuth(): boolean { return localStorage["user"] != undefined };
   private _userSubject: BehaviorSubject<Utilisateur>;
   public user$: Observable<Utilisateur>;
 
@@ -24,29 +24,29 @@ export class AuthentificationService {
   constructor(
     private _client: HttpClient,
     private _router: Router
-  ) { 
+  ) {
     this._userSubject = new BehaviorSubject<Utilisateur>(JSON.parse(localStorage.getItem('user')));
     this.user$ = this._userSubject.asObservable();
   }
 
   public get userValue(): Utilisateur {
-    return this._userSubject.value;
+    return this._userSubject.value ?? undefined;
   }
 
   register(formUser: Utilisateur): Observable<any> {
     return this._client.post(`${environment.apiUrl}/utilisateur/create`, formUser);
   }
 
-  login(formUser: login) : Observable<Utilisateur> {
-   return this._client.post<Utilisateur>(`${environment.apiUrl}/utilisateur/login`,formUser)
+  login(formUser: login): Observable<Utilisateur> {
+    return this._client.post<Utilisateur>(`${environment.apiUrl}/utilisateur/login`, formUser)
       .pipe(map(user => {
-      localStorage.setItem('user', JSON.stringify(user));
-      this._userSubject.next(user);
+        localStorage.setItem('user', JSON.stringify(user));
+        this._userSubject.next(user);
 
-      return user;
-    }));
+        return user;
+      }));
 
-    
+
 
     // return new Promise(
     //   (resolve, reject) => {
@@ -56,10 +56,10 @@ export class AuthentificationService {
     //       else reject(console.log('connection échouée'));
     //     }, 1000);
     //   }
-    
+
   }
 
-  UpdateUser(user: Utilisateur){
+  UpdateUser(user: Utilisateur) {
     this._client.put<Utilisateur>('http://localhost:5000', user).pipe(map(user => {
       this._userSubject.next(user)
     }))

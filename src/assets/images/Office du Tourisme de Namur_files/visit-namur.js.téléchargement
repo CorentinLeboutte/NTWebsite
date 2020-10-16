@@ -1,0 +1,257 @@
+resize();
+
+var header_sliader_timeout = 5000;
+var s = "";
+var s_wait = 0;
+$(window).ready(function(){
+	resize();
+	
+	$("#menu_trigger").click(function(e){
+		e.preventDefault();
+		$("#menu").addClass("menu_on");
+		$("#gallery_filter").addClass("menu_on");
+		$("body").css('overflow', 'hidden');
+		$("#gallery_filter").css('height', '100vh');
+	});
+	
+	$("#gallery_filter, #menu_logo").click(function(e){
+		e.preventDefault();
+		$("#menu").removeClass("menu_on");
+		$("#gallery_filter").removeClass("menu_on");
+		$("body").css('overflow', 'visible');
+		$("#gallery_filter").css('height', '100%');
+	});
+	
+	if( $("#landing #gallery").length>0 ){
+		setTimeout(show_next_gallery_img, header_sliader_timeout);
+	}
+	
+	
+	// SEARCH
+	$("#search_input").focus(function(){
+		$("#filter_user,#filter_calendar").removeClass('on');
+	});
+	$("#search_input").keyup(function(){
+		s = $(this).val();
+		prepare_search();
+	});
+	
+	$("#search_bt").click(function(e){
+		e.preventDefault();
+		s = $(this).val();
+		prepare_search();
+	});
+	
+	$("#search a").click(function(){
+		s = $("#search_input").val();
+		prepare_search();
+	});
+	
+	// EVENT - SAME HEIGHT
+	if( ($("body.home").length==0 && $(window).width()>544) || $(window).width()>768 ){
+		var max_h = 0;
+		$(".event").each(function(){
+			if( $(this).height()>max_h ){
+				max_h = $(this).height();
+			}
+		});
+		$(".event").height(max_h);
+	}
+	
+	// EVENT FILTER
+	$("#events_calendar li a").click(function(e){
+		e.preventDefault();
+		
+		var show_all = false;
+		if( !$(this).hasClass('on') ){
+			$("#events_calendar li a").removeClass('on');
+			$(this).addClass('on');
+		}else{
+			$("#events_calendar li a").removeClass('on');
+			show_all = true;
+		}
+		
+		var month = $(this).attr('data-month');
+		$(".event").each(function(){
+			if( show_all || $(this).attr('data_month-'+month) ){
+				$(this).show(); 
+			}else{
+				$(this).hide();
+			}
+		});
+	});
+	
+	$.datepicker.regional[ "fr" ];
+	$( ".datepicker" ).datepicker( {firstDay: 1, onSelect:datepicker_change, onClose:datepicker_change } );
+	
+});
+
+function datepicker_change(date){
+	if( $("#search_date_from").val()!="" && $("#search_date_to").val()!="" && $("#search_date_to").val()>$("#search_date_from").val() ){
+		$("#search_filter_calendar").addClass('on');
+	}else{
+		$("#search_filter_calendar").removeClass('on');
+	}
+}
+
+function prepare_search(){
+	clearTimeout(s_wait);
+	s_wait = setTimeout(function(){ search(); }, 300);
+}
+function search(){
+	var max_r;
+	if( $(window).width()>768 ){
+		max_r = parseInt( ( ( ($(window).height()/10)*8) - 110 - 190 ) / 40 );
+	}else{
+		if( $(window).width()<=544 ){
+			max_r = 6;
+		}else{
+			max_r = parseInt( ( $(window).height()/2 - 110 - 190 ) / 40 );
+		}
+	}
+	
+	if( s!="" || $("#filter_user a.on").length>0 || ( $("#search_date_from").val() && $("#search_date_to").val() ) ){
+		$("#search_bt i").attr('class', "fa fa-spinner");
+		majax( 'ajax_call', {'a':'search', 'user':$("#filter_user a.on").attr('data'), 'date_from':$("#search_date_from").val(), 'date_to':$("#search_date_to").val() , 's':s, 'max_r':max_r}, search_back );
+	}
+}
+
+
+//
+// search_back
+function search_back(res){
+	// $("#filter_user, #filter_calendar").removeClass("on");
+	var res_html = "";
+	for(var i in res.result){
+		res_html += "<a href='"+res.result[i][1]+"'><i class='fa fa-"+res.result[i][2]+"' "+( res.result[i][3] ? "style='color: "+res.result[i][3]+";'" : '' )+" aria-hidden='true'></i>"+res.result[i][0]+"</a>";
+	}
+	
+	$("#search_results_inside").html(res_html);
+	
+	if( res_html=="" ){
+		$("#search_results_inside").hide();
+	}else{
+		$("#search_results_inside").show();
+	}
+	
+	$("#search_bt i").attr('class', "fa fa-search");
+}
+
+$("#search_filter_user").click(function(e){
+	e.preventDefault();
+	$("#filter_calendar").removeClass('on');
+	if( $("#filter_user").hasClass('on') ){
+		$("#filter_user").removeClass('on');
+	}else{
+		$("#filter_user").addClass('on');
+	}
+});
+
+$("#filter_user a").click(function(e){
+	e.preventDefault();
+	if( $(this).hasClass('on') ){
+		$(this).removeClass('on');
+		$("#search_filter_user").removeClass('on');
+	}else{
+		$("#filter_user a").removeClass('on');
+		$(this).addClass('on');
+		$("#search_filter_user").addClass('on');
+	}
+	prepare_search();
+	setTimeout(function(){ $("#filter_user").removeClass('on'); }, 300);
+});
+
+$("#search_filter_calendar").click(function(e){
+	e.preventDefault();
+	$("#filter_user").removeClass('on');
+	if( $("#filter_calendar").hasClass('on') ){
+		$("#filter_calendar").removeClass('on');
+	}else{
+		$("#filter_calendar").addClass('on');
+	}
+});
+
+
+
+
+
+function show_next_gallery_img(){
+	var it = $("#landing #gallery .gallery").index( $("#landing #gallery .gallery.on") );
+	it++;
+	if( it==$("#landing #gallery .gallery").length ){
+		it = 0;
+	}
+	
+	$("#header_libelle").html("<span>"+$("#landing #gallery .gallery:eq("+it+")").attr('data-alt')+"</span>");
+	
+	$("#landing #gallery .gallery").removeClass('on');
+	$("#landing #gallery .gallery:eq("+it+")").addClass('on');
+	setTimeout(show_next_gallery_img, header_sliader_timeout);
+	
+	var ctr = -1;
+	$("#landing #gallery .gallery").each(function(){
+		ctr++;
+		$(this).css('transform', 'translateX('+((ctr-it)*100)+'%)');
+		$(this).css('-webkit-transform', 'translateX('+((ctr-it)*100)+'%)');
+	});
+}
+
+
+$(window).resize(function(){ resize(); })
+function resize(){
+	var wh = $(window).outerHeight();
+	var ww = $(window).width();
+	
+	if( ww>768 ){
+		$("#landing.home").height((wh/10)*8);
+	}else{
+		if( ww<=544 ){
+			$("#landing.home").height( (wh/4)*3 );
+		}else{
+			$("#landing.home").height(wh/2);
+		}
+	}
+	
+	var ul_li_a_height = ( (wh-100)/$("#menu ul li").length )-1;
+	$("#menu ul li").height( ul_li_a_height ); 
+	$("#menu ul li a").css( 'line-height', ul_li_a_height+'px' ); 
+	
+	$("#gallery").width(ww);
+	$("#gallery").css('max-width', ww);
+	$("#gallery .galery").width(ww);
+	
+	$(".square").height( $(".square").width() );
+	
+}
+
+$(window).scroll(function(){
+
+});
+
+
+// AJAX CALLS
+function majax(fn,datas,fn_back){
+	
+	var ajax_obj = {
+		url: '/wp-admin/admin-ajax.php?action='+fn,
+		data: datas,
+		dataType:'json',
+		cache:false,
+		crossDomain: true,
+		asyn: true,
+		cache: false,
+		type: "POST",
+		error: function(e){
+			// 
+		},
+		success: fn_back
+	};
+	
+	if( fn=="upload_image" ){
+		ajax_obj.contentType = false;
+		ajax_obj.processData = false;
+	}
+	
+	$.ajax( ajax_obj );
+	
+}

@@ -17,7 +17,9 @@ export class ConnectionComponent implements OnInit {
   registerForm: FormGroup;
   returnUrl: string;
 
-  authStatus: boolean;
+  public get authStatus(): boolean {
+    return this._Auth.isAuth;
+  }
 
   constructor(
     private _dateAdapter: DateAdapter<any>,
@@ -26,16 +28,20 @@ export class ConnectionComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router
   ) {
-    if (this._Auth.userValue) {
-      this._router.navigate(['/home']);
-    }
+
   }
 
   ngOnInit(): void {
+    console.log(localStorage['returnUrl']);
+    this.returnUrl = localStorage['returnUrl'] || '/home';
+    if (this._Auth.isAuth) {
+      console.log(this._Auth.isAuth)
+      this._router.navigateByUrl(this.returnUrl);
+    }
     this._dateAdapter.setLocale('fr');
     this.initForm();
 
-    this.authStatus = this._Auth.isAuth;
+    //this.authStatus = this._Auth.isAuth;
 
     this.loginForm = this._formBuillder.group({
       email: [null, [Validators.required, Validators.email]],
@@ -54,7 +60,6 @@ export class ConnectionComponent implements OnInit {
       mdp: [null, [Validators.required]]
     });
 
-    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/divertissement';
   }
 
 
@@ -72,10 +77,11 @@ export class ConnectionComponent implements OnInit {
 
   logout() {
     this._Auth.signOut();
-    this.authStatus = this._Auth.isAuth;
+    //this.authStatus = this._Auth.isAuth;
   }
 
   get f() { return this.loginForm.controls; }
+  get r() { return this.registerForm.controls; }
 
   onSubmitLogin() {
     const formLogin = new login;
@@ -83,6 +89,8 @@ export class ConnectionComponent implements OnInit {
     formLogin.mdp = this.f.mdp.value;
     this._Auth.login(formLogin).subscribe(
       data => {
+        console.log(data);
+        console.log(this.returnUrl);
         this._router.navigate([this.returnUrl]);
       },
       error => {
@@ -93,16 +101,18 @@ export class ConnectionComponent implements OnInit {
 
   onSubmitRegister() {
     const formRegister = new Utilisateur;
-    formRegister.civilite = this.f.civilite.value;
-    formRegister.nom = this.f.nom.value;
-    formRegister.prenom = this.f.prenom.value;
-    formRegister.dateNaiss = this.f.dateNaiss.value;
-    formRegister.numTelDomicile = this.f.email.value;
-    formRegister.numTelPortable = this.f.numTelPortable.value;
-    formRegister.numFax = this.f.numFax.value;
-    formRegister.email = this.f.email.value;
-    formRegister.mdp = this.f.mdp.value;
-    this._Auth.login(formRegister).subscribe(
+    console.log(this.r);
+    formRegister.civilite = this.r.civilite.value;
+    formRegister.nom = this.r.nom.value;
+    formRegister.prenom = this.r.prenom.value;
+    formRegister.dateNaiss = this.r.dateNaiss.value;
+    formRegister.numTelDomicile = this.r.email.value;
+    formRegister.numTelPortable = this.r.numTelPortable.value;
+    formRegister.numFax = this.r.numFax.value;
+    formRegister.email = this.r.email.value;
+    formRegister.mdp = this.r.mdp.value;
+    console.log(formRegister);
+    this._Auth.register(formRegister).subscribe(
       data => {
         this._router.navigate([this.returnUrl]);
       },

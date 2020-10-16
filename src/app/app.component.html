@@ -22,12 +22,28 @@
   <span>Menu</span>
   <span class="example-spacer"> </span>
 
+  <span *ngIf="isAuth">{{ "Bonjour " + user.prenom }}</span>
+
+  <!--bouton de déconnection-->
+
+  <button
+    mat-icon-button
+    class="public_off"
+    matTooltip="Se déconnecter"
+    (click)="logoutButtonAction()"
+    *ngIf="isAuth"
+  >
+    <mat-icon>public_off</mat-icon>
+  </button>
+
   <!--bouton du login -->
+
   <button
     mat-icon-button
     class="login-icon"
-    routerLink="/connection"
     matTooltip="Se connecter"
+    (click)="loginButtonAction()"
+    *ngIf="isAuth != true"
   >
     <mat-icon>login</mat-icon>
   </button>

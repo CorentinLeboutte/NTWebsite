@@ -1,8 +1,8 @@
-import { BreakpointObserver, Breakpoints  } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map,shareReplay } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { ThemeLite } from 'src/app/models/theme-lite';
 import { ThemeService } from 'src/app/services/theme.service';
 
@@ -13,21 +13,24 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class DivertissementComponent implements OnInit {
 
+  public get isAuth(): boolean { return localStorage['user'] != undefined; }
   typetheme: number;
-  themes : ThemeLite[] = [];
+  themes: ThemeLite[] = [];
   panelOpenState = false;
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)  
-  .pipe(    map(result => result.matches),    
-  shareReplay()  );
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(map(result => result.matches),
+      shareReplay());
 
-  constructor(private breakpointObserver: BreakpointObserver, private service: ThemeService, private route:ActivatedRoute) { }
+  constructor(private breakpointObserver: BreakpointObserver, private service: ThemeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(param=>{
-       this.typetheme = param ['cat'];
-        this.service.GetByTypeTheme(this.typetheme).subscribe(data =>{this.themes = data
-    console.log(data)});
-        });
+    this.route.params.subscribe(param => {
+      this.typetheme = param['cat'];
+      this.service.GetByTypeTheme(this.typetheme).subscribe(data => {
+        this.themes = data
+        console.log(data)
+      });
+    });
   }
 }
 
